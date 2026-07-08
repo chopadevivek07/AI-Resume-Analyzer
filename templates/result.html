@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+<meta charset="UTF-8">
+
+<title>AI Resume Analysis</title>
+
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+
+<style>
+
+body{
+background:#0f172a;
+color:white;
+}
+
+.card{
+background:#1e293b;
+border:none;
+border-radius:20px;
+margin-bottom:20px;
+}
+
+.badge{
+margin:5px;
+font-size:15px;
+padding:10px;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="container mt-5">
+
+<h1 class="mb-4">
+🚀 AI Resume Analysis
+</h1>
+
+<div class="card p-4">
+
+<h2>ATS Score</h2>
+
+<h1 class="text-success">
+{{ ats.score }}
+</h1>
+
+</div>
+
+<div class="card p-4">
+
+<h3>Summary</h3>
+
+<p>{{ analysis.summary }}</p>
+
+</div>
+<div class="card p-4 mt-4">
+
+    <h3>ATS Score Breakdown</h3>
+
+    <table class="table table-dark table-striped mt-3">
+
+        <thead>
+            <tr>
+                <th>Section</th>
+                <th>Marks</th>
+            </tr>
+        </thead>
+
+        <tbody>
+
+        {% for key, value in ats.breakdown.items() %}
+
+        <tr>
+            <td>{{ key }}</td>
+            <td>{{ value }}</td>
+        </tr>
+
+        {% endfor %}
+
+        </tbody>
+
+    </table>
+
+<div class="card p-4 mt-4">
+
+    <h3>Skills Detected</h3>
+
+    {% for skill in ats.skills_found %}
+
+        <span class="badge bg-success m-1">
+            {{ skill }}
+        </span>
+
+    {% endfor %}
+
+</div></div>
+<div class="card p-4">
+
+<h3>Strengths</h3>
+
+{% for item in analysis.strengths %}
+
+<span class="badge bg-success">
+{{ item }}
+</span>
+
+{% endfor %}
+
+</div>
+
+<div class="card p-4">
+
+<h3>Weaknesses</h3>
+
+{% for item in analysis.weaknesses %}
+
+<span class="badge bg-danger">
+{{ item }}
+</span>
+
+{% endfor %}
+
+</div>
+
+<div class="card p-4">
+
+<h3>Missing Skills</h3>
+
+{% for item in analysis.missing_skills %}
+
+<span class="badge bg-warning text-dark">
+{{ item }}
+</span>
+
+{% endfor %}
+
+</div>
+
+<div class="card p-4">
+
+<h3>Recommended Roles</h3>
+
+{% for item in analysis.recommended_roles %}
+
+<span class="badge bg-primary">
+{{ item }}
+</span>
+
+{% endfor %}
+
+</div>
+
+<div class="card p-4">
+
+<h3>Improvements</h3>
+
+<ul>
+
+{% for item in analysis.improvements %}
+
+<li>{{ item }}</li>
+
+{% endfor %}
+
+</ul>
+
+</div>
+
+</div>
+
+</body>
+
+</html>

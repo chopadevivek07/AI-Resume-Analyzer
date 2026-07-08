@@ -1,0 +1,45 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<div class="row justify-content-center align-items-center" style="min-height:80vh;">
+
+    <div class="col-md-6">
+
+        <div class="card p-5 text-center">
+
+            <h1 class="display-4 fw-bold text-white mb-3">
+                🚀 AI Resume Analyzer
+            </h1>
+
+            <p class="lead text-light mb-4">
+                Upload your resume and get AI-powered ATS analysis,
+                skill detection, recommendations, and career insights.
+            </p>
+
+            <form action="/upload" method="POST" enctype="multipart/form-data">
+
+                <input
+                    type="file"
+                    name="resume"
+                    accept=".pdf"
+                    class="form-control mb-4"
+                    required>
+
+                <button
+                    type="submit"
+                    class="btn btn-primary btn-lg w-100">
+
+                    📄 Upload Resume
+
+                </button>
+
+            </form>
+
+        </div>
+
+    </div>
+
+</div>
+
+{% endblock %}

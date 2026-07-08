@@ -1,0 +1,53 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<div class="card p-4">
+
+    <h2 class="mb-4">🎯 Job Description Matcher</h2>
+
+    <form method="POST">
+
+        <!-- Resume Text -->
+
+        <div class="mb-4">
+
+            <label class="form-label">
+                Paste Resume Text
+            </label>
+
+            <textarea
+                class="form-control"
+                rows="10"
+                name="resume_text"
+                placeholder="Paste your extracted resume text here..."
+                required></textarea>
+
+        </div>
+
+        <!-- Job Description -->
+
+        <div class="mb-4">
+
+            <label class="form-label">
+                Paste Job Description
+            </label>
+
+            <textarea
+                class="form-control"
+                rows="10"
+                name="job_description"
+                placeholder="Paste the Job Description here..."
+                required></textarea>
+
+        </div>
+
+        <button class="btn btn-primary btn-lg">
+            Analyze Match
+        </button>
+
+    </form>
+
+</div>
+
+{% endblock %}

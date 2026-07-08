@@ -1,0 +1,218 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<div class="row">
+
+    <!-- ATS SCORE -->
+
+    <div class="col-lg-4">
+
+        <div class="card score-card">
+
+            <h4 class="card-title">
+                ATS Score
+            </h4>
+
+            <div class="score">
+                {{ ats.score }}%
+            </div>
+
+            <hr>
+
+            {% for key,value in ats.breakdown.items() %}
+
+            <p class="mb-2">
+
+                <strong>{{ key }}</strong>
+
+                <div class="progress">
+
+                    <div
+                        class="progress-bar"
+                        style="width:{{ value*10 }}%">
+                    </div>
+
+                </div>
+
+            </p>
+
+            {% endfor %}
+
+        </div>
+
+    </div>
+
+    <!-- SUMMARY -->
+
+    <div class="col-lg-8">
+
+        <div class="card p-4">
+
+            <h3 class="section-title">
+                AI Summary
+            </h3>
+
+            <p class="summary">
+
+                {{ analysis.summary }}
+
+            </p>
+
+        </div>
+
+        <div class="card p-4">
+
+            <h3 class="section-title">
+
+                Skills Detected
+
+            </h3>
+
+            {% for skill in ats.skills_found %}
+
+            <span class="skill-badge">
+
+                {{ skill }}
+
+            </span>
+
+            {% endfor %}
+
+        </div>
+
+    </div>
+
+</div>
+
+<!-- SECOND ROW -->
+
+<div class="row mt-4">
+
+    <div class="col-lg-6">
+
+        <div class="card p-4">
+
+            <h3>
+
+                💪 Strengths
+
+            </h3>
+
+            {% for item in analysis.strengths %}
+
+            <div class="strength">
+
+                {{ item }}
+
+            </div>
+
+            {% endfor %}
+
+        </div>
+
+    </div>
+
+    <div class="col-lg-6">
+
+        <div class="card p-4">
+
+            <h3>
+
+                ⚠ Weaknesses
+
+            </h3>
+
+            {% for item in analysis.weaknesses %}
+
+            <div class="weakness">
+
+                {{ item }}
+
+            </div>
+
+            {% endfor %}
+
+        </div>
+
+    </div>
+
+</div>
+
+<!-- THIRD ROW -->
+
+<div class="row mt-4">
+
+    <div class="col-lg-6">
+
+        <div class="card p-4">
+
+            <h3>
+
+                Missing Skills
+
+            </h3>
+
+            {% for item in analysis.missing_skills %}
+
+            <div class="missing">
+
+                {{ item }}
+
+            </div>
+
+            {% endfor %}
+
+        </div>
+
+    </div>
+
+    <div class="col-lg-6">
+
+        <div class="card p-4">
+
+            <h3>
+
+                Recommended Roles
+
+            </h3>
+
+            {% for item in analysis.recommended_roles %}
+
+            <div class="role-card">
+
+                {{ item }}
+
+            </div>
+
+            {% endfor %}
+
+        </div>
+
+    </div>
+
+</div>
+
+<!-- IMPROVEMENTS -->
+
+<div class="card p-4 mt-4">
+
+<h3>
+
+Improvements
+
+</h3>
+
+<ul>
+
+{% for item in analysis.improvements %}
+
+<li>{{ item }}</li>
+
+{% endfor %}
+
+</ul>
+
+</div>
+
+{% endblock %}

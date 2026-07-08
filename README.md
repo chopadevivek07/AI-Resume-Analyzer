@@ -83,7 +83,7 @@ AI-Resume-Analyzer
     ├── 08-nginx-test.png
     └── 09-aws-ec2.png
 ```
-
+![Architecture](/img/architecture.png)
 ---
 
 # 🏗 Architecture
@@ -115,7 +115,7 @@ AI-Resume-Analyzer
                    ▼
              AWS EC2 Instance
 ```
-
+![Architecture](/img/architecture-1.png)
 ---
 
 # ⚙️ Installation
